@@ -3,16 +3,36 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="goToAddEvento()">
+          <ion-icon name="add-circle"></ion-icon>
+        </button>
+      </ion-buttons>
+    <ion-title>Eventos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>SideMenu HelloWorld !</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-  <button ion-button primary (click)="goToTestePage()">Go To TestePage</button>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-list>
+      <ion-item class="text" *ngFor="let evento of eventos | async">
+        <ion-card (click) = "getEventoInfo(evento)">
+          <img src={{evento.imagem}}/>
+          <ion-card-content>
+            <ion-card-title>
+              {{evento.nome}}
+              </ion-card-title>
+            <p>
+              <ion-icon name="calendar"></ion-icon>
+              {{evento.data}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+
+  <button ion-button primary color="secondary" (click)="goToTestePage()">Go To TestePage</button>
 </ion-content>
+
+
+
