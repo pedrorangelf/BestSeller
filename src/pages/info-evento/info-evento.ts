@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { ConfigEventoPage } from '../config-evento/config-evento'
 
 @Component({
   selector: 'page-info-evento',
@@ -8,7 +9,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class InfoEventoPage {
 
-  evento: any = {};
+  evento: AngularFireList<any>;;
   
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -23,4 +24,10 @@ export class InfoEventoPage {
     console.log('ionViewDidLoad InfoEventoPage');
   }
 
+  goToConfig(evento){
+    this.navCtrl.push(ConfigEventoPage, 
+      {
+        'evento': evento,
+      });
+  }
 }

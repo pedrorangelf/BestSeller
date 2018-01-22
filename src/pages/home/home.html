@@ -15,11 +15,11 @@
 <ion-content padding>
 
   <ion-list>
-      <ion-item class="text" *ngFor="let evento of eventos | async">
+      <ion-item *ngFor="let evento of eventos | async">
         <ion-card (click) = "getEventoInfo(evento)">
           <img src={{evento.imagem}}/>
           <ion-card-content>
-            <ion-card-title>
+            <ion-card-title color="light">
               {{evento.nome}}
               </ion-card-title>
             <p>

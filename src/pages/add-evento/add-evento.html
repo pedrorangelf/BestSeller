@@ -19,36 +19,36 @@
 
         <ion-item>
           <ion-label floating>Nome</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="nome"></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label floating>Lote</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="number" [(ngModel)]="lote"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Data</ion-label>
-            <ion-datetime displayFormat="DD MM YYYY"></ion-datetime>
+            <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="data"></ion-datetime>
           </ion-item>
 
           <ion-item>
             <ion-label floating>Data do Acerto</ion-label>
-            <ion-datetime displayFormat="DD MM YYYY"></ion-datetime>
+            <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="dataacerto"></ion-datetime>
           </ion-item>
 
           <ion-item>
               <ion-label floating>Data Virada de Lote</ion-label>
-              <ion-datetime displayFormat="DD MM YYYY"></ion-datetime>
+              <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="datavirada"></ion-datetime>
           </ion-item>
 
           <ion-item>
               <ion-label floating>Meta</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="text" [(ngModel)]="meta"></ion-input>
           </ion-item>
       
       </ion-list>
-      <button ion-button block color="secondary">
+      <button ion-button block color="secondary" (click)="createEvento(nome, lote, data, dataacerto, datavirada, meta)">
        Criar Evento
       </button>
 </ion-content>

@@ -17,6 +17,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { environment} from '../environments/environment';
 import { AddEventoPage } from '../pages/add-evento/add-evento';
+import { ConfigEventoPage } from '../pages/config-evento/config-evento';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AddEventoPage } from '../pages/add-evento/add-evento';
     ListPage,
     TestePage,
     InfoEventoPage,
-    AddEventoPage
+    AddEventoPage,
+    ConfigEventoPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { AddEventoPage } from '../pages/add-evento/add-evento';
     ListPage,
     TestePage,
     InfoEventoPage,
-    AddEventoPage
+    AddEventoPage,
+    ConfigEventoPage
   ],
   providers: [
     StatusBar,
