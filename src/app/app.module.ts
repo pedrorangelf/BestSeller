@@ -7,10 +7,6 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { TestePage } from '../pages/teste/teste';
-import { InfoEventoPage } from '../pages/info-evento/info-evento';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +16,14 @@ import { AddEventoPage } from '../pages/add-evento/add-evento';
 import { ConfigEventoPage } from '../pages/config-evento/config-evento';
 import { MembroEquipePage } from '../pages/membro-equipe/membro-equipe';
 import { SignupPage } from '../pages/signup/signup';
-import { UserProvider } from '../providers/user/user';
+import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+import { TestePage } from '../pages/teste/teste';
+import { InfoEventoPage } from '../pages/info-evento/info-evento';
+import { SigninPage } from '../pages/signin/signin';
+
+import { UserService } from '../providers/user/user.service';
+import { AuthService } from '../providers/auth/auth.service';
 
 
 @NgModule({
@@ -33,7 +36,8 @@ import { UserProvider } from '../providers/user/user';
     AddEventoPage,
     ConfigEventoPage,
     MembroEquipePage,
-    SignupPage 
+    SignupPage,
+    SigninPage
   ],
   imports: [
     BrowserModule,
@@ -53,13 +57,15 @@ import { UserProvider } from '../providers/user/user';
     AddEventoPage,
     ConfigEventoPage,
     MembroEquipePage,
-    SignupPage
+    SignupPage,
+    SigninPage
   ],
   providers: [
+    AuthService,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

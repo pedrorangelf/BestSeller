@@ -1,0 +1,36 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1 text-center>
+    <ion-icon class="icon-big" name="ios-unlock-outline" color="primary"></ion-icon>
+  </h1>
+
+  <form [formGroup]="signinForm" (ngSubmit)="logar(); $event.preventDefault()">
+    <ion-list>
+
+      <ion-item>
+        <ion-icon name="ios-mail-outline" item-left color="primary"></ion-icon>
+        <ion-input placeholder="E-mail" type="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="ios-lock-outline" item-left color="primary"></ion-icon>
+        <ion-input placeholder="Senha" type="password" formControlName="senha"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button block type="submit" [disabled]="signinForm.invalid">Entrar</button>
+
+  </form>
+
+  <button ion-button block clear text-center (click)="onSignup()">Cadastre-se</button>
+</ion-content>
