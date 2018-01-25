@@ -23,8 +23,32 @@
     <ion-item><ion-icon name="pricetags"></ion-icon><strong> Lote Atual: </strong>{{evento.lote}}</ion-item>
     <ion-item><ion-icon name="calendar"></ion-icon><strong> Virada de Lote: </strong>{{evento.viradalote}}</ion-item>
     <ion-item><ion-icon name="calendar"></ion-icon><strong> Data do Acerto: </strong>{{evento.dataacerto}}</ion-item>
-    <ion-item><ion-icon name="flag"></ion-icon><strong> Meta Atual: </strong>{{evento.meta}}</ion-item>
-    
+    <ion-item><ion-icon name="flag"></ion-icon><strong> Meta Atual: </strong>{{evento.meta}}</ion-item>   
   </ion-list>
+
+  <!-- Equipes -->
+  <!-- <ion-list>
+      <ion-list-header>
+          Equipe
+        </ion-list-header>
+    <ion-item-sliding *ngFor="let membro of membros | async">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="img/slimer.png">
+        </ion-avatar>
+        <h2>{{ membro.nome }}</h2>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="presentModal(membro)">
+          <ion-icon name="information-circle"></ion-icon>
+          Detalhes
+        </button>
+        <button ion-button color="danger">
+          <ion-icon name="trash"></ion-icon>
+          Excluir
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list> -->
 
 </ion-content>

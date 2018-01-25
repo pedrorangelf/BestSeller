@@ -18,6 +18,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { environment} from '../environments/environment';
 import { AddEventoPage } from '../pages/add-evento/add-evento';
 import { ConfigEventoPage } from '../pages/config-evento/config-evento';
+import { MembroEquipePage } from '../pages/membro-equipe/membro-equipe';
+import { SignupPage } from '../pages/signup/signup';
+import { UserProvider } from '../providers/user/user';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { ConfigEventoPage } from '../pages/config-evento/config-evento';
     TestePage,
     InfoEventoPage,
     AddEventoPage,
-    ConfigEventoPage
+    ConfigEventoPage,
+    MembroEquipePage,
+    SignupPage 
   ],
   imports: [
     BrowserModule,
@@ -46,12 +51,15 @@ import { ConfigEventoPage } from '../pages/config-evento/config-evento';
     TestePage,
     InfoEventoPage,
     AddEventoPage,
-    ConfigEventoPage
+    ConfigEventoPage,
+    MembroEquipePage,
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserProvider
   ]
 })
 export class AppModule {}

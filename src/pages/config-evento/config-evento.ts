@@ -34,7 +34,8 @@ export class ConfigEventoPage {
 removeEvento(){
   let alert = this.alertCtrl.create({ 
     message: "Deseja APAGAR o Evento ?", 
-    buttons: [ { text: 'Apagar', 
+    buttons: [ { text: 'Apagar',
+                 cssClass: 'danger',
     handler: data => { this.angularFireDb.object('/eventos/' + this.key)
                                          .remove()
                                          .then(evento => {this.navCtrl.push(HomePage);}) 

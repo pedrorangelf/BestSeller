@@ -8,6 +8,7 @@ import { TestePage} from '../teste/teste';
 
 import 'rxjs/add/operator/map';
 import { InfoEventoPage } from '../info-evento/info-evento';
+import { SignupPage } from '../signup/signup';
 import { AddEventoPage } from '../add-evento/add-evento';
 // import { InfoEventoPage } from '../info-evento/info-evento';
 
@@ -29,7 +30,7 @@ export class HomePage {
   }
 
   goToTestePage() {
-    this.navCtrl.push(TestePage);
+    this.navCtrl.push(SignupPage);
   }
 
   goToAddEvento() {
