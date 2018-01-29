@@ -22,12 +22,6 @@ export class InfoEventoPage {
     let evento = this.navParams.get('evento');
     this.evento = evento;  
 
-   //this.membros = angularFireDb.list('/usuarios', ref => ref.orderByChild(evento.id).equalTo(true)).valueChanges();
-
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InfoEventoPage');
   }
 
   goToConfig(evento){

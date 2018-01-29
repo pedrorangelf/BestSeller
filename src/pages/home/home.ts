@@ -4,13 +4,12 @@ import { Http } from '@angular/http';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
-import { TestePage} from '../teste/teste';
-
 import 'rxjs/add/operator/map';
+
 import { InfoEventoPage } from '../info-evento/info-evento';
-import { SignupPage } from '../signup/signup';
 import { AddEventoPage } from '../add-evento/add-evento';
-// import { InfoEventoPage } from '../info-evento/info-evento';
+import { AuthService } from '../../providers/auth/auth.service';
+import { EventoService } from '../../providers/evento/evento.service';
 
 
 @Component({
@@ -23,14 +22,12 @@ export class HomePage {
   
   constructor(public navCtrl: NavController,
               public http: Http,
-              public angularFireDb: AngularFireDatabase) {
+              public angularFireDb: AngularFireDatabase,
+              public authService: AuthService,
+              public eventoService: EventoService) {
+                
+    this.eventos = this.eventoService.listarPorUsuario().valueChanges();
 
-    this.eventos = angularFireDb.list('/eventos').valueChanges();
-
-  }
-
-  goToTestePage() {
-    this.navCtrl.push(SignupPage);
   }
 
   goToAddEvento() {

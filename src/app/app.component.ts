@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Loading, LoadingController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { TestePage } from '../pages/teste/teste';
 import { SigninPage } from '../pages/signin/signin';
+import { AuthService } from '../providers/auth/auth.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,7 @@ rootPage: any = SigninPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public authService: AuthService, public loadingCtrl: LoadingController, public menu: MenuController, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -28,6 +29,17 @@ rootPage: any = SigninPage;
       { title: 'Teste', component: TestePage }
     ];
 
+  }
+
+  
+  private showLoading(): Loading{
+    let loading: Loading = this.loadingCtrl.create({
+      content: 'Saindo...'
+    });
+  
+    loading.present();
+  
+    return loading;
   }
 
   initializeApp() {
@@ -43,5 +55,12 @@ rootPage: any = SigninPage;
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout(){
+
+    let loading: Loading = this.showLoading();
+
+    this.authService.logout().then(() => {loading.dismiss().then(() => {this.menu.close()}).then(() => {this.nav.setRoot(SigninPage)})});
   }
 }

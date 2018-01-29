@@ -58,7 +58,7 @@ criarConta()
                                                                   console.log(error);
                                                                   loading.dismiss();
                                                                   this.showAlert(error.message);
-                                                                });; 
+                                                                });
                         }
             ).catch((error: Error) => {
               console.log(error);

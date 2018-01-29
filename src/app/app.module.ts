@@ -24,6 +24,7 @@ import { SigninPage } from '../pages/signin/signin';
 
 import { UserService } from '../providers/user/user.service';
 import { AuthService } from '../providers/auth/auth.service';
+import { EventoService } from '../providers/evento/evento.service';
 
 
 @NgModule({
@@ -65,7 +66,9 @@ import { AuthService } from '../providers/auth/auth.service';
     StatusBar,
     SplashScreen,
     UserService,
+    EventoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+    
   ]
 })
 export class AppModule {}

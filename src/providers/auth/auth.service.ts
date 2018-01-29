@@ -8,12 +8,15 @@ export class AuthService {
     console.log('Hello AuthProvider Provider');
   }
 
-
   createAuthUser(user: {email: string, senha:string}) {
     return this.auth.auth.createUserWithEmailAndPassword(user.email, user.senha);   
   }
 
   signInWithEmail(user: {email: string, senha: string}){
     return this.auth.auth.signInWithEmailAndPassword(user.email, user.senha); 
+  }
+
+  logout(){
+    return this.auth.auth.signOut();
   }
 }

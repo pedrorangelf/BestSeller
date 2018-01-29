@@ -15,40 +15,52 @@
 
 <ion-content padding>
 
-    <ion-list>
+    <form [formGroup]="eventoForm" (ngSubmit)="criarEvento(); $event.preventDefault()">
+        <ion-list>
+    
+            <ion-item>
+                <ion-label floating>Nome</ion-label>
+                <ion-input type="text" formControlName="nome"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label floating>Lote</ion-label>
+                 <ion-input type="text" formControlName="lote"></ion-input>
+            </ion-item>
+          
+           <ion-item>
+              <ion-label floating>Data</ion-label>
+              <ion-datetime displayFormat="DD MM YYYY" formControlName="data"></ion-datetime>
+            </ion-item>
 
-        <ion-item>
-          <ion-label floating>Nome</ion-label>
-          <ion-input type="text" [(ngModel)]="nome"></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label floating>Lote</ion-label>
-          <ion-input type="number" [(ngModel)]="lote"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label floating>Data do Acerto</ion-label>
+                <ion-datetime displayFormat="DD MM YYYY" formControlName="dataacerto"></ion-datetime>
+              </ion-item>
+    
+              <ion-item>
+                  <ion-label floating>Data Virada de Lote</ion-label>
+                  <ion-datetime displayFormat="DD MM YYYY" formControlName="dataviralote"></ion-datetime>
+              </ion-item>
+    
+              <ion-item>
+                  <ion-label floating>Meta</ion-label>
+                  <ion-input type="text" formControlName="meta"></ion-input>
+              </ion-item>
 
-        <ion-item>
-            <ion-label floating>Data</ion-label>
-            <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="data"></ion-datetime>
-          </ion-item>
+              <ion-item>
+                <ion-label floating>Valor Ingresso</ion-label>
+                <ion-input type="text" formControlName="valoringresso"></ion-input>
+            </ion-item>
 
-          <ion-item>
-            <ion-label floating>Data do Acerto</ion-label>
-            <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="dataacerto"></ion-datetime>
-          </ion-item>
-
-          <ion-item>
-              <ion-label floating>Data Virada de Lote</ion-label>
-              <ion-datetime displayFormat="DD MM YYYY" [(ngModel)]="datavirada"></ion-datetime>
-          </ion-item>
-
-          <ion-item>
-              <ion-label floating>Meta</ion-label>
-              <ion-input type="text" [(ngModel)]="meta"></ion-input>
-          </ion-item>
-      
-      </ion-list>
-      <button ion-button block color="secondary" (click)="createEvento(nome, lote, data, dataacerto, datavirada, meta)">
-       Criar Evento
-      </button>
+            <ion-item>
+                <ion-label floating>Ingressos Vendidos</ion-label>
+                <ion-input type="text" formControlName="ingressosvendidos"></ion-input>
+            </ion-item>
+          
+          </ion-list>
+    
+          <button ion-button block color="secondary" type="submit" [disabled]="eventoForm.invalid">Criar Evento</button>
+    
+        </form>
 </ion-content>
