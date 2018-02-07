@@ -26,7 +26,7 @@ export class HomePage {
               public authService: AuthService,
               public eventoService: EventoService) {
                 
-    this.eventos = this.eventoService.listarPorUsuario().valueChanges();
+    this.eventos = this.eventoService.listar().valueChanges();
 
   }
 

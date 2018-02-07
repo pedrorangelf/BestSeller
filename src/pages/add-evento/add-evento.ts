@@ -39,6 +39,8 @@ export class AddEventoPage {
       dataacerto: ['', Validators.required],
       dataviralote: ['', Validators.required],
       meta: ['', Validators.required],
+      valoringresso: [''],
+      ingressosvendidos: ['']
     });
   }
 
